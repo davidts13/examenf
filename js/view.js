@@ -1,15 +1,8 @@
-// ========================================
-// SERIE III: Visualización de Mensajes (Vista Cronológica)
-// Backend: http://localhost:3000/api/mensajes
-// SQL Server: svr-sql-ctezo.southcentralus.cloudapp.azure.com
-// ========================================
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Iniciando carga de mensajes desde SQL Server...');
     loadMessages();
-
-    // Auto-refresh cada 30 segundos (opcional)
-    // setInterval(loadMessages, 30000);
 });
 
 async function loadMessages() {
@@ -32,10 +25,10 @@ async function loadMessages() {
     updateStatus('loading', 'Cargando...');
 
     try {
-        console.log(`📡 Realizando petición GET a: http://localhost:3000/api/mensajes?sort=${sortOrder}`);
+        console.log(`📡 Realizando petición GET a: https://examenf-gguf.onrender.com/api/mensajes?sort=${sortOrder}`);
 
         // Realizar petición GET al backend local que consulta SQL Server
-        const response = await fetch(`http://localhost:3000/api/mensajes?sort=${sortOrder}`, {
+        const response = await fetch(`https://examenf-gguf.onrender.com/api/mensajes?sort=${sortOrder}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json'
