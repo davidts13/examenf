@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+backend/node_modules/
+
+# Archivos de configuración de entorno
+.env
+*.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+dist/
+build/

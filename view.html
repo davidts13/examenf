@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat UMG - Ver Mensajes</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="view-page">
+
+    <!-- Navbar Premium -->
+    <nav class="navbar navbar-custom navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="chat.html">
+                <i class="bi bi-chat-dots-fill me-2 fs-4"></i>
+                <span class="fw-bold">Chat UMG</span>
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="chat.html" class="btn btn-light btn-sm">
+                    <i class="bi bi-plus-circle me-1"></i>
+                    Nuevo Mensaje
+                </a>
+                <div class="dropdown">
+                    <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle me-1"></i>
+                        <span class="d-none d-md-inline">Menú</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="chat.html">
+                            <i class="bi bi-send me-2"></i>Enviar Mensaje
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" onclick="logout()">
+                            <i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+
+                <!-- View Card -->
+                <div class="chat-card card border-0 shadow-lg">
+
+                    <!-- Card Header -->
+                    <div class="chat-header text-white">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                            <div>
+                                <h3 class="mb-2 fw-bold">
+                                    <i class="bi bi-chat-square-text-fill me-2"></i>
+                                    Mensajes del Chat
+                                </h3>                                
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-light btn-sm hover-lift" onclick="loadMessages()">
+                                    <i class="bi bi-arrow-clockwise me-2"></i>
+                                    Actualizar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body p-4">
+
+                        <!-- Controls Bar -->
+                        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-3">
+                            <div>
+                                <span class="badge bg-gradient text-white px-3 py-2">
+                                    <i class="bi bi-chat-dots me-2"></i>
+                                    <strong id="messageCount">0</strong> mensajes
+                                </span>
+                            </div>
+                            <div>
+                                <span class="badge bg-success px-3 py-2" id="statusBadge">
+                                    <i class="bi bi-wifi me-1"></i>
+                                    <span id="statusText">Conectado</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Loading Spinner -->
+                        <div id="loadingSpinner" class="text-center py-5" style="display: none;">
+                            <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                            <h5 class="text-muted">Cargando mensajes...</h5>
+                            <p class="text-muted small">Conectando a la base de datos...</p>
+                        </div>
+
+                        <!-- Alert Message -->
+                        <div id="alertMessage" class="alert-custom" style="display: none;"></div>
+
+                        <!-- Messages Container -->
+                        <div id="messagesContainer" class="messages-container">
+                            <!-- Los mensajes se cargarán aquí dinámicamente -->
+                        </div>                      
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/view.js"></script>
+
+</body>
+</html>
